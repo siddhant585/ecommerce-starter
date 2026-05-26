@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from database import get_db_connection, close_db_connection
+from routers import products
 
 app = FastAPI(title="API")
+app.include_router(products.router, prefix="/products", tags=["products"])
 
 @app.get("/")
 def root():
