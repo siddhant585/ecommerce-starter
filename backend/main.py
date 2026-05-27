@@ -1,9 +1,12 @@
 from fastapi import FastAPI
 from database import get_db_connection, close_db_connection
-from routers import products
+from routers import products, sessions, carts, checkout
 
 app = FastAPI(title="API")
 app.include_router(products.router, prefix="/products", tags=["products"])
+app.include_router(sessions.router, prefix="/sessions", tags=["sessions"])
+app.include_router(carts.router, prefix="/carts", tags=['carts'])
+app.include_router(checkout.router, prefix="/checkout", tags=['checkout'])
 
 @app.get("/")
 def root():
