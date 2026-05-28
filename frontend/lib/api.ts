@@ -2,7 +2,7 @@
 
 import { getToken } from './session';
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
 
 // --- Product (products table + Pydantic models) ---
 
